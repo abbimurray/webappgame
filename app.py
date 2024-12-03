@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request  
+import 4words
 
 app = Flask(__name__)
 
@@ -36,7 +37,8 @@ def show_play_screen():
 @app.post("/process")
 def process():
 	the_pattern = request.form["4words"]
-	return the_pattern
+	the_results = 4words.validate_wordlist(sourceword, the_pattern)
+	return the_results
 	
 
     
