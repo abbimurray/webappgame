@@ -1,6 +1,6 @@
 from collections import Counter
 
-importDBcm
+#importDBcm
 
 creds = {
     "user": "wordsuser",

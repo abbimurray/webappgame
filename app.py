@@ -27,11 +27,12 @@ def hello():
 @app.get("/opening")
 def show_opening_screen():
     return render_template("index.html", the_title="Welcome to Words 4")
-        
-@app.route('/play')
+
+         
+@app.route('/play',methods=['GET'])
 def show_play_screen():
-	#sourceword = generate_large_word()
-	return render_template("play.html", the_title="Play word game 4")
+	sourceword = generate_large_word()
+	return render_template("play.html", the_title="Play word game 4", sourceword=sourceword)
 
 
 @app.post("/process")
