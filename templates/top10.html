@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+
+{% block the_body %}
+ <h2>Top 10 Scores</h2>
+       
+<table></table><br><br> 
+<a href="{{ url_for('show_play_screen') }}">
+    <button>Play?</button>
+</a>
+
+<br><br>
+
+<a href="{{ url_for('show_opening_screen') }}">
+    <button>Review the rules</button>
+</a>
+
+{% endblock %}
+

@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+
+{% block the_body %}
+ <h2>Let's get busy!</h2>
+        <h3>The clock is ticking....</h3>
+		<p>Your word is: <b>{{ sourceword }}</b></p><br>
+		  Enter your seven words in this box, seperating each word by a space:<br>
+		 <form method="POST" autocomplete="off" action="/process">
+		 <input type="TEXT" name="4words" placeholder="enter words here"><br><br>
+		 <input type="SUBMIT" value="Done">
+		</p>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul style="color: red;">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+{% endblock %}
+
