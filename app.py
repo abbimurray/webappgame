@@ -35,7 +35,10 @@ def show_play_screen():
 
 @app.post("/process")
 def process():
-	pass
+	the_pattern = request.form["4words"]
+	return the_pattern
+	
+
     
 @app.get("/top10")
 def show_top10():
