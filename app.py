@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request  
-import 4words
+import wordsLogic
+import random
 
 app = Flask(__name__)
 
@@ -38,10 +39,16 @@ def show_play_screen():
 @app.post("/process")
 def process():
 	the_pattern = request.form["4words"]
-	the_results = 4words.validate_wordlist(sourceword, the_pattern)
-	return the_results
+	sourceword = request.form["sourceword"]
 	
-
+	is_valid = wordsLogic.validate_wordlist(sourceword, the_pattern)
+	
+	
+	# Convert the boolean to a valid HTTP response
+	if is_valid:
+        	return render_template('pass.html')
+	else:
+        	return render_template('fail.html') 
     
 @app.get("/top10")
 def show_top10():

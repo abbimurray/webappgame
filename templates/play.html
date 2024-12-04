@@ -6,6 +6,7 @@
         <h3>The clock is ticking....</h3>
 		<form method="POST" autocomplete="off" action="/process">
 		<p>Your word is: <b>{{ sourceword }}</b></p><br>
+		<input type="hidden" name="sourceword" value={{ sourceword }}">
           	  Enter your seven words in this box, seperating each word by a space:<br>
 		 <form method="POST" autocomplete="off" action="/process">
 		 <input type="TEXT" name="4words" placeholder="enter words here"><br><br>
