@@ -46,9 +46,9 @@ def process():
 	
 	# Convert the boolean to a valid HTTP response
 	if is_valid:
-        	return render_template('pass.html')
+        	return render_template("pass.html")
 	else:
-        	return render_template('fail.html') 
+        	return render_template("fail.html") 
     
 @app.get("/top10")
 def show_top10():
