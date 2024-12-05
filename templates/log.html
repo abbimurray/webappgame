@@ -11,6 +11,7 @@
             <th>Timestamp</th>
             <th>IP Address</th>
             <th>User Agent</th>
+            <th>Guesses</th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +22,7 @@
             <td>{{ log[2] }}</td> <!-- timestamp -->
             <td>{{ log[3] }}</td> <!-- ip_address -->
             <td>{{ log[4] }}</td> <!-- user_agent -->
+            <td>{{ log[5] }}</td><!-- matches -->
         </tr>
         {% endfor %}
     </tbody>

@@ -30,7 +30,7 @@
     document.querySelector('form').addEventListener('submit', () => {
         const endTime = new Date().getTime();
         const timeTaken = (endTime - startTime) / 1000; // Time in seconds
-        document.getElementById('time_taken').value = timeTaken.toFixed(2); // Set the hidden input's value
+        document.getElementById('time_taken').value = timeTaken.toFixed(2); 
     });
 </script>
 {% endblock %}
