@@ -1,15 +1,38 @@
 {% extends "base.html" %}
 
 {% block the_body %}
- <h2>Logged information on all game attempts</h2>
+<h2>Logged Information on All Game Attempts</h2>
+
 <table>
- table?
+    <thead>
+        <tr>
+            <th>Result</th>
+            <th>Source Word</th>
+            <th>Timestamp</th>
+            <th>IP Address</th>
+            <th>User Agent</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for log in logs %}
+        <tr>
+            <td>{{ log[0] }}</td> <!-- win_fail -->
+            <td>{{ log[1] }}</td> <!-- sourceword -->
+            <td>{{ log[2] }}</td> <!-- timestamp -->
+            <td>{{ log[3] }}</td> <!-- ip_address -->
+            <td>{{ log[4] }}</td> <!-- user_agent -->
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
+
+<!-- Buttons -->
 <a href="{{ url_for('show_play_screen') }}">
-	 <button>Let's Play</button>
- </a>
+    <button>Let's Play</button>
+</a>
 <br><br>
 <a href="{{ url_for('show_opening_screen') }}">
-         <button>Review the rules</button>
- </a>
+    <button>Review the Rules</button>
+</a>
 {% endblock %}
+

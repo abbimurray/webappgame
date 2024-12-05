@@ -3,9 +3,10 @@
 {% block the_title %}Try Again{% endblock %}
 
 {% block the_body %}
-    <h1>Better luck next time.</h1>
-    <p>Looks like you have to try harder...</p>
-    <button><a href="/play">Play again?</a></button>
-    <button><a href="/opening">Review the rules</a></button>
-{% endblock %}
+<h1>Better Luck Next Time!</h1>
+<p>Looks like you need to try harder...</p>
+<p>Your time: <b>{{ time_taken }} seconds</b></p>
 
+<button><a href="/play">Play Again?</a></button>
+<button><a href="/opening">Review the Rules</a></button>
+{% endblock %}

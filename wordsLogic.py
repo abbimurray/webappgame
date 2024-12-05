@@ -3,10 +3,10 @@ from collections import Counter
 #importDBcm
 
 creds = {
-    "user": "wordsuser",
-    "password": "wordspasswd",
+    "user": "words4user",
+    "password": "words4passwd",
     "host": "localhost",
-    "database": "wordsDB",
+    "database": "words4DB",
 }
 
 #logic 
@@ -125,6 +125,7 @@ def validate_wordlist(sourceword, wordlist):
 
     Returns True if all the rules are satisfied, otherwise False.
     """
+    
     if isinstance(wordlist, str):
         words = wordlist.split()
     else:
@@ -133,39 +134,47 @@ def validate_wordlist(sourceword, wordlist):
     # Rule 1: All words are made up of letters in sourceword
     if not all(check_sourceword_letters(sourceword, word) for word in words):
         print("Failed Rule 1: Words contain letters not in the sourceword.")
+        #failures.append("Failed Rule 1: Words contain letters not in the sourceword.")
         return False
 
     # Rule 2: No overuse of letters
     if not all(check_too_many_letters(sourceword, word) for word in words):
         print("Failed Rule 2: Words overuse letters from the sourceword.")
+        #failures.append("Failed Rule 2: Words overuse letters from the sourceword.")
         return False
 
     # Rule 3: All words exist in the dictionary
     if not all(is_it_a_real_word(word) for word in words):
         print("Failed Rule 3: Some words are not valid dictionary words.")
+        #failures.append("Failed Rule 3: Some words are not valid dictionary words.")
         return False
 
     # Rule 4: Check for at least 7 words
     if not entered_seven_words(wordlist):
         print("Failed Rule 4: Less than 7 words entered.")
+        #failures.append("Failed Rule 4: Less than 7 words entered.")
         return False
 
     # Rule 5: All words are 4 letters or more
     if not min_word_length(wordlist):
         print("Failed Rule 5: Some words are shorter than 4 letters.")
+        #failures.append("Failed Rule 5: Some words are shorter than 4 letters.")
         return False
 
     # Rule 6: No duplicate words
     if check_for_duplicates(wordlist):
         print("Failed Rule 6: Duplicate words are present.")
+        #failures.append("Failed Rule 6: Duplicate words are present.")
         return False
 
     # Rule 7: None of the words should match the sourceword
     if includes_sourceword(sourceword, wordlist):
         print("Failed Rule 7: Sourceword is included in the wordlist.")
+        #failures.append("Failed Rule 7: Sourceword is included in the wordlist.")
         return False
 
     # All checks passed
     print("Validation passed all rules.")
     return True
+    #return failures
 

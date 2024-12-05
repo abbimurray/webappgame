@@ -1,14 +1,12 @@
+
 {% extends "base.html" %}
 
 {% block the_title %}You Won!{% endblock %}
 
 {% block the_body %}
-    <h1>You're a winner!</h1>
-    <p>Well done, you've won!</p>
-    <form method="POST" action="/recordscore">
-        <label for="name">Enter your name:</label>
-        <input type="text" id="name" name="name" required>
-        <button type="submit">Record score!</button>
-    </form>
-{% endblock %}
+<h1>You're a winner!</h1>
+<p>Well done, you've won!</p>
+<p>It took you <b>{{ time_taken }} seconds</b> to complete the game!</p>
 
+<a href="/top10">See Leaderboard</a>
+{% endblock %}

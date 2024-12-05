@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block the_title %}Top Ten Leaderboard{% endblock %}
+
+{% block the_body %}
+<h1>Top Ten Leaderboard</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Position</th>
+            <th>Time Taken</th>
+            <th>Name</th>
+            <th>Sourceword</th>
+            <th>Matches</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in results %}
+        <tr>
+            <td>{{ row[0] }}</td> <!-- position -->
+            <td>{{ row[1] }}</td> <!-- time_taken -->
+            <td>{{ row[2] }}</td> <!-- who -->
+            <td>{{ row[3] }}</td> <!-- sourceword -->
+            <td>{{ row[4] }}</td> <!-- matches -->
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br><br>
+<a href="/play"><button>Play Again</button></a>
+<br><br>
+<a href="/opening"><button>Review Rules</button></a>
+<br><br>
+
+{% endblock %}
+
+

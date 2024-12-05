@@ -2,17 +2,36 @@
 {% extends "base.html" %}
 
 {% block the_body %}
- <h2>Let's get busy!</h2>
-        <h3>The clock is ticking....</h3>
-		<form method="POST" autocomplete="off" action="/process">
-		<p>Your word is: <b>{{ sourceword }}</b></p><br>
-		<input type="hidden" name="sourceword" value={{ sourceword }}">
-          	  Enter your seven words in this box, seperating each word by a space:<br>
-		 <form method="POST" autocomplete="off" action="/process">
-		 <input type="TEXT" name="4words" placeholder="enter words here"><br><br>
-		 <input type="SUBMIT" value="Done">
-		</p></form>
+<h2>Let's get busy!</h2>
+<h3>The clock is ticking....</h3>
 
+<form method="POST" autocomplete="off" action="/process">
+    <p>Your word is: <b>{{ sourceword }}</b></p>
+    <input type="hidden" name="sourceword" value="{{ sourceword }}">
 
+    <p>Your Name:
+        <input type="text" name="name" placeholder="Enter your name" required><br><br>
+    </p>
+
+    <p>Enter your seven words in this box, separating each word by a space:<br>
+        <input type="text" name="4words" placeholder="Enter words here" required><br><br>
+    </p>
+
+    <input type="hidden" id="time_taken" name="time_taken">
+    <input type="submit" value="Submit">
+</form>
+
+<!-- Timer Script -->
+<script>
+    // Start time when the page loads
+    const startTime = new Date().getTime();
+
+    // Event listener to calculate time taken when the form is submitted
+    document.querySelector('form').addEventListener('submit', () => {
+        const endTime = new Date().getTime();
+        const timeTaken = (endTime - startTime) / 1000; // Time in seconds
+        document.getElementById('time_taken').value = timeTaken.toFixed(2); // Set the hidden input's value
+    });
+</script>
 {% endblock %}
 
