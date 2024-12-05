@@ -1,28 +1,26 @@
 {% extends "base.html" %}
 
 {% block the_body %}
- <h2>Welcome to Word Game 4!!</h2>
-        <h3>How to play...</h3>
-                <p> You are provided with a word of eight letters or more which we will call "sourceword".
-                <br>You are to think up seven 4-or-more letter words made up from the letters contained within the sourceword, ensuring that:
-                <br>
-                <ol>
-                        <li>Each word is only made up from the letters contained within the sourceword.</li>
-                        <li>You haven't reused any letter more times that it appears within the sourceword.</li>
-                        <li>Each word exists within the dictionary (i.e., it's a "real" word).</li>
-                        <li>The words all have four letters or more.</li>
-                        <li>There are no duplicate words.</li>
-                        <li>None of the seven words is the source word.</li>
-                </ol>
-                <b>Note:</b> case is NOT significiant (i.e., This, THIS, and this are the *same* word).
-                <br><br>
-                <a href="{{ url_for('show_play_screen') }}">
-	 	  <button>Let's Play</button>
-                </a><br><br>
-                <a href="{{ url_for('show_log') }}">
-                 <button>Display Log</button>
-                </a><br><br>
-                See the top Ten leaderboard <a href="{{ url_for('top_ten') }}">here</a>.
-                </p>
+<h1>Welcome to Word Game 4!!</h1>
+<h2>How to play...</h2>
+<p>You are provided with a word of eight letters or more which we will call "sourceword". You are to think up seven 4-or-more letter words made up from the letters contained within the sourceword, ensuring that:</p>
+<div class="how-to-play">
+<ol>
+    <li>Each word is only made up from the letters contained within the sourceword.</li>
+    <li>You haven't reused any letter more times than it appears within the sourceword.</li>
+    <li>Each word exists within the dictionary (i.e., it's a "real" word).</li>
+    <li>The words all have four letters or more.</li>
+    <li>There are no duplicate words.</li>
+    <li>None of the seven words is the source word.</li>
+</ol>
+</div>
+<p><strong>Note:</strong> Case is NOT significant (i.e., This, THIS, and this are the <em>same</em> word).</p>
+
+<div class="buttons">
+    <button onclick="window.location.href='/play';">Let's Play</button>
+    <button onclick="window.location.href='/log';">Display Log</button>
+</div>
+
+<p>See the <a href="/top10">top Ten leaderboard</a> here.</p>
 {% endblock %}
 
